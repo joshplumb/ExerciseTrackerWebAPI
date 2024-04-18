@@ -33,18 +33,19 @@ namespace ExerciseTrackerWebAPI.Controllers
 
             var databaseResult = await _exerciseRepository.Create(exerciseModel);
 
-            var response = new ExerciseModel
-            {
-                ExerciseId = databaseResult.ExerciseId,
-                ExerciseName = databaseResult.ExerciseName,
-                Weight = databaseResult.Weight,
-                Intensity = databaseResult.Intensity,
-                Repetitions = databaseResult.Repetitions,
-                Notes = databaseResult.Notes,
-                Date = databaseResult.Date
-            };
+            // Commented out because there is no obvious need to map the databaseResult to another model of type Exercise model when we can just return the result without this step
+            //var response = new ExerciseModel
+            //{
+            //    ExerciseId = databaseResult.ExerciseId,
+            //    ExerciseName = databaseResult.ExerciseName,
+            //    Weight = databaseResult.Weight,
+            //    Intensity = databaseResult.Intensity,
+            //    Repetitions = databaseResult.Repetitions,
+            //    Notes = databaseResult.Notes,
+            //    Date = databaseResult.Date
+            //};
 
-            return response;
+            return databaseResult;
         }
 
         [HttpGet]
